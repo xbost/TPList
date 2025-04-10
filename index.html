@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" id="body">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css?family=Teko:400&subset=latin-ext" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap" rel="stylesheet">
+		<link href="ass/banana.css?v903" rel="stylesheet">
+		<script src="ass/banana.js?v903b"></script>
+		<title>TPList v0.9.3</title>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<img id=source src="ass/cohesive-unit.jpg" alt="" class="asset">
+			<div class="tier-input">
+				<input type="text" class="tier" placeholder="Gold">
+				<img id="tier1" src="ass/t1.png" alt="" class="asset">
+				<label for="sort1"><input type="checkbox" id="sort1" class="checkbox"> <span>SORT BY NAME</span></label>
+			</div>
+			<div class="tier-input">
+				<input type="text" class="tier" placeholder="Silver">
+				<img id="tier2" src="ass/t2.png" alt="" class="asset">
+				<label for="sort2"><input type="checkbox" id="sort2" class="checkbox"> <span>SORT BY NAME</span></label>
+			</div>
+			<div class="tier-input">
+				<input type="text" class="tier" placeholder="Bronze">
+				<img id="tier3" src="ass/t3.png" alt="" class="asset">
+				<label for="sort3"><input type="checkbox" id="sort3" class="checkbox"> <span>SORT BY NAME</span></label>
+			</div>
+			<div class="tier-input">
+				<input type="text" class="tier" placeholder="Other">
+				<img id="tier4" src="ass/t4.png" alt="" class="asset">
+				<label for="sort4"><input type="checkbox" id="sort4" class="checkbox"> <span>SORT BY NAME</span></label>
+			</div>
+
+			<canvas id="canvas"></canvas>
+			<span id="debug"></span>
+			<div class="actions">
+				<a href="#changelog" onclick="this.classList.toggle('active')">CHANGELOG</a>
+				<a href="#sample" onclick="populate('sample')">SAMPLE NAMES</a>
+				<a href="#reset" onclick="populate('reset')">CLEAR</a><br>
+			</div>
+			<div id="changelog">
+				v0.9.4: Changed outdated patreon logo (again), misc reorganisation.<br>
+				v0.9.3: Changed outdated patreon logo, updated background in general.<br>
+				v0.9.2: Added optional name sorting.<br>
+				v0.9.1: Compacted stuff even further.<br>
+				v0.9c: Compacted stuff further, moved away from jsfiddle.<br>
+				v0.9: Background update, more compacted font and icons, moved patreon info to the top to free some extra space on the bottom for the names.<br>
+				v0.8: Another font/icon downscale due to names like «StevenSeagalCockPuncher» and increasing total amount of people.<br>
+				v0.7: Background image updated with new Patreon branding.<br>
+				v0.6: Tier icons updated, font size reduced to accomodate people with longer names in the future.<br>
+				v0.5: New background and font with diacritics support ("Björn" wasn't displayed properly, fixed).<br>
+				v0.4: Automatic column number/width adjustment, depending on total name count.
+			</div>
+		</div>
+	</body>
+</html>
