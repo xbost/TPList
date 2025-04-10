@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css?family=Teko:400&subset=latin-ext');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	background: #0b0c11;
+	padding: 20px;
+	margin: 0;
+}
+
+.wrap {
+	width: 100%px;
+	max-width: 1920px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.tier-input {
+	position: relative;
+	margin: 10px auto;
+}
+.tier-input .asset {
+	width: 20px;
+	height: 20px;
+	display:block;
+	position: absolute;
+	top: 8px;
+	left: 8px;
+}
+
+input[type="text"] {
+	display: block;
+	width: 100%;
+	height: 38px;
+	padding: 12px 10px 10px 36px;
+	font-family: "Teko", Arial, sans-serif;
+	font-size: 18px;
+	line-height: 18px;
+	border: 1px solid #666;
+	border-radius: 4px;
+	background-color: #111;
+	color: #eee;
+}
+input::placeholder {
+	opacity: 0.25;
+}
+
+label {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: auto;
+	height: 30px;
+	margin: 4px;
+	font-family: "Teko", Arial, sans-serif;
+	font-size: 17px;
+	line-height: 17px;
+	padding: 5px;
+	border-radius: 2px;
+	background-color: #000;
+	cursor: pointer;
+	opacity: 0.69;
+}
+
+label:has(input:checked) {
+	opacity: 1;
+}
+
+label span {
+	opacity: 0.5;
+}
+
+label input:checked + span {
+	opacity: 1;
+}
+
+
+.tier-input > input[type="text"] {
+	border: 1px solid #f2e224;
+	color: #f2e224;
+	background-color: #f2e22422;
+}
+.tier-input > label {
+	background-color: #f2e224;
+}
+
+.tier-input + .tier-input > input[type="text"] {
+	border: 1px solid #d0d2f4;
+	color: #d0d2f4;
+	background-color: #d0d2f422;
+}
+.tier-input + .tier-input > label {
+	background-color: #d0d2f4;
+}
+
+.tier-input + .tier-input + .tier-input > input[type="text"] {
+	border: 1px solid #c0c242;
+	color: #c0c242;
+	background-color: #c0c24222;
+}
+.tier-input + .tier-input + .tier-input > label {
+	background-color: #c0c242;
+}
+
+.tier-input + .tier-input + .tier-input + .tier-input > input[type="text"] {
+	border: 1px solid #b2b4b6;
+	color: #b2b4b6;
+	background-color: #b2b4b622;
+}
+.tier-input + .tier-input + .tier-input + .tier-input > label {
+	background-color: #b2b4b6;
+}
+
+#canvas {
+	display: block;
+	width: 100%;
+	max-width: 1920px;
+	height: auto;
+	margin: 10px auto;
+	cursor: pointer;
+	box-shadow: 0 0 2px #fff6;
+}
+
+.asset {
+	display: none;
+}
+
+.actions {
+	width: 100%;
+	margin: 22px auto;
+	font-family: "Teko", Arial, sans-serif;
+	font-size: 22px;
+	line-height: 20px;
+	color: #becee7;
+	text-align: center;
+}
+.actions a {
+	display: inline-block;
+	text-decoration: none;
+	color: #becee7;
+	border: 1px solid #becee7;
+	border-radius: 4px;
+	padding: 6px 12px;
+	margin: 6px;
+	opacity: 0.33;
+}
+.actions a:hover {
+	display: inline-block;
+	text-decoration: none;
+	color: #becee7;
+	border: 1px solid #becee7;
+	border-radius: 4px;
+	padding: 6px 12px;
+	margin: 6px;
+	opacity: 0.9;
+}
+
+#changelog {
+	transition: all 250ms ease-in-out;
+	width: 100%;
+	height: 0;
+	opacity: 0;
+	overflow: hidden;
+	margin: 22px auto;
+	font-family: "Teko", Arial, sans-serif;
+	font-size: 20px;
+	color: #8888;
+}
+
+.actions:has(a.active) + #changelog {
+	opacity: 1;
+	height: auto;
+}
