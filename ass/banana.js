@@ -36,7 +36,7 @@ const populate = function(action) {
   var ctx = e.canvas.getContext('2d');
   ctx.drawImage(e.source, 0, 0);
   var list = names.split(",");
-  var fontHeight = 17;
+  var fontHeight = 18;
   var lineHeight = fontHeight+2;
   var limit = Math.floor(910 / lineHeight);
   var totalColumns = Math.ceil(list.length/(limit+1));
@@ -50,29 +50,29 @@ const populate = function(action) {
     var x = columnWidth/4 + (column * columnWidth);
     var y = 130 + (line * lineHeight)
     ctx.drawImage(e.tier[rank], x-3, y - fontHeight + (rank == 0 ? 3 : 4), 20, 20);
-    ctx.font = "8px Roboto";
-    ctx.fillStyle = "#112233";
+    ctx.font = "10px 'Barlow Condensed'";
+    ctx.fillStyle = "#11223399";
     ctx.textAlign = "center";
     ctx.fillText(i + 1, x + 7, y);
     ctx.fillStyle = color[rank];
     ctx.textAlign = "left";
     ctx.font = fontHeight + "px Teko";
     var nameWidth = ctx.measureText(list[i].trim()).width;
-    var fontReduce = 1;
-    while (nameWidth > (columnWidth - fontHeight*1.5)) {
-      ctx.font = (fontHeight-fontReduce) + "px Teko";
-      fontReduce++;
-      nameWidth = ctx.measureText(list[i].trim()).width;
-    }
+    // var fontReduce = 1;
+    // while (nameWidth > (columnWidth - fontHeight*1.5)) {
+    //   ctx.font = (fontHeight-fontReduce) + "px Teko";
+    //   fontReduce++;
+    //   nameWidth = ctx.measureText(list[i].trim()).width;
+    // }
     if (nameWidth < 1) {
       alert("⚠️ Empty name at #" + (i+1) + ", check your lists for extra commas");
       ctx.fillText("?", x + 20, y+2);
     }
     else {
       ctx.fillStyle = "#112233";
-      ctx.fillText(list[i].trim(), x + 20, y+4);
+      ctx.fillText(list[i].trim(), x + 20, y+4, (columnWidth - fontHeight*1.5));
       ctx.fillStyle = color[rank];
-      ctx.fillText(list[i].trim(), x + 20, y+2);
+      ctx.fillText(list[i].trim(), x + 20, y+2, (columnWidth - fontHeight*1.5));
     }
     line++;
     if (line > limit) {
