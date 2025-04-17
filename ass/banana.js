@@ -50,13 +50,13 @@ const populate = function(action) {
     var x = columnWidth/4 + (column * columnWidth);
     var y = 130 + (line * lineHeight)
     ctx.drawImage(e.tier[rank], x-3, y - fontHeight + (rank == 0 ? 3 : 4), 20, 20);
-    ctx.font = "10px 'Barlow Condensed'";
+    ctx.font = "10px 'Barlow Condensed', sans-serif";
     ctx.fillStyle = "#11223399";
     ctx.textAlign = "center";
     ctx.fillText(i + 1, x + 7, y);
     ctx.fillStyle = color[rank];
     ctx.textAlign = "left";
-    ctx.font = fontHeight + "px Teko";
+    ctx.font = fontHeight + "px Teko, sans-serif";
     var nameWidth = ctx.measureText(list[i].trim()).width;
     // var fontReduce = 1;
     // while (nameWidth > (columnWidth - fontHeight*1.5)) {
