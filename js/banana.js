@@ -1,11 +1,23 @@
 var e = {};
 
+const dateStamp = function() {
+	const d = new Date();
+	return [
+		String(d.getFullYear()).slice(-2),
+		String(d.getMonth() + 1).padStart(2,'0'),
+		String(d.getDate()).padStart(2,'0'),
+		String(d.getHours()).padStart(2,'0'),
+		String(d.getMinutes()).padStart(2,'0'),
+		String(d.getSeconds()).padStart(2,'0')
+	].join('-');
+}
+
 const populate = function (action) {
 	if (action == 'download') {
 		const d = new Date();
 		e.download = document.createElement('a');
 		e.download.href = e.canvas.toDataURL("image/png;base64");
-		e.download.download = `tier-list-${d}`;
+		e.download.download = `TPList@${dateStamp()}`;
 		return e.download.click();
 	}
 	var names = "";
