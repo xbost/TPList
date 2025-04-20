@@ -3,60 +3,61 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400&display=swap" rel="preload" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,600&text=0123456789&display=swap" rel="preload" crossorigin>
-		<link href="css/banana.css?v096g" rel="stylesheet">
-		<script src="js/banana.js?v095g"></script>
-		<title>TPList v0.9.6g</title>
+		<link href="css/banana.css" rel="stylesheet">
+		<script src="js/banana.js"></script>
+		<title>TPList v0.9.7g</title>
 	</head>
 
 	<body>
 		<div class="wrap">
 			<img id=source src="images/cohesive-unit.jpg" alt="" class="asset">
 			<div class="tier-input">
-				<input type="text" class="tier" placeholder="Gold">
+				<input type="text" class="tier" placeholder="Gold" onchange="populate()">
 				<img id="tier1" src="images/t1.png" alt="" class="asset">
-				<label for="sort1"><input type="checkbox" id="sort1" class="checkbox"> <span>SORT BY NAME</span></label>
+				<label for="sort1"><input type="checkbox" id="sort1" class="checkbox" tabindex="-1"> <span>SORT BY NAME</span></label>
 			</div>
 			<div class="tier-input">
-				<input type="text" class="tier" placeholder="Silver">
+				<input type="text" class="tier" placeholder="Silver" onchange="populate()">
 				<img id="tier2" src="images/t2.png" alt="" class="asset">
-				<label for="sort2"><input type="checkbox" id="sort2" class="checkbox"> <span>SORT BY NAME</span></label>
+				<label for="sort2"><input type="checkbox" id="sort2" class="checkbox" tabindex="-1"> <span>SORT BY NAME</span></label>
 			</div>
 			<div class="tier-input">
-				<input type="text" class="tier" placeholder="Bronze">
+				<input type="text" class="tier" placeholder="Bronze" onchange="populate()">
 				<img id="tier3" src="images/t3.png" alt="" class="asset">
-				<label for="sort3"><input type="checkbox" id="sort3" class="checkbox"> <span>SORT BY NAME</span></label>
+				<label for="sort3"><input type="checkbox" id="sort3" class="checkbox" tabindex="-1"> <span>SORT BY NAME</span></label>
 			</div>
 			<div class="tier-input">
-				<input type="text" class="tier" placeholder="Other">
+				<input type="text" class="tier" placeholder="Other" onchange="populate()">
 				<img id="tier4" src="images/t4.png" alt="" class="asset">
-				<label for="sort4"><input type="checkbox" id="sort4" class="checkbox"> <span>SORT BY NAME</span></label>
+				<label for="sort4"><input type="checkbox" id="sort4" class="checkbox" tabindex="-1"> <span>SORT BY NAME</span></label>
 			</div>
 
 			<canvas id="canvas"></canvas>
 			<span id="debug"></span>
 			<div class="actions">
 				<a href="#save" onclick="populate('download')">DOWNLOAD</a>
-				<a href="#reset" onclick="populate('reset')">CLEAR</a>
-				<a href="#sample" onclick="populate('sample')">SAMPLE NAMES</a>
-				<a href="#changelog" onclick="this.classList.toggle('active')">CHANGELOG</a>
-				<a href="#bWFpbHRvOmJveEB4Ym9zdC5wcm8/c3ViamVjdD1BYm91dCB0aGUgdGllciBsaXN0aW5nIHRvb2w=" onclick="this.href=atob(this.href.split('#')[1])??this.href;">CONTACT</a><br>
+				<a href="#reset" onclick="populate('reset')" tabindex="-1">CLEAR</a>
+				<a href="#sample" onclick="populate('sample')" tabindex="-1">SAMPLE NAMES</a>
+				<a href="#changelog" onclick="this.classList.toggle('active')" tabindex="-1">MISC INFO</a>
 			</div>
 			<div id="changelog">
-				v0.9.4g: Changed outdated patreon logo (again), misc reorganisation.<br>
-				v0.9.3: Changed outdated patreon logo, updated background in general.<br>
-				v0.9.2: Added optional name sorting.<br>
-				v0.9.1: Compacted stuff even further.<br>
-				v0.9c: Compacted stuff further, moved away from jsfiddle.<br>
-				v0.9: Background update, more compacted font and icons, moved patreon info to the top to free some extra space on the bottom for the names.<br>
-				v0.8: Another font/icon downscale due to names like «StevenSeagalCockPuncher» and increasing total amount of people.<br>
-				v0.7: Background image updated with new Patreon branding.<br>
-				v0.6: Tier icons updated, font size reduced to accomodate people with longer names in the future.<br>
-				v0.5: New background and font with diacritics support ("Björn" wasn't displayed properly, fixed).<br>
-				v0.4: Automatic column number/width adjustment, depending on total name count.
+				<div>
+					You can <a href="#bWFpbHRvOmJveEB4Ym9zdC5wcm8/c3ViamVjdD1BYm91dCB0aGUgdGllciBsaXN0aW5nIHRvb2w=" onclick="this.href=atob(this.href.split('#')[1])??this.href;" tabindex="-1">message here</a> for questions. Changelog:
+				</div>
+				<span>v0.9.7g: Misc improvements</span>
+				<span>v0.9.4g: Changed outdated patreon logo (again), misc reorganisation</span>
+				<span>v0.9.3: Changed outdated patreon logo, updated background in general</span>
+				<span>v0.9.2: Added optional name sorting</span>
+				<span>v0.9.1: Compacted stuff even further</span>
+				<span>v0.9c: Compacted stuff further, moved away from jsfiddle</span>
+				<span>v0.9: Background update, more compacted font and icons, moved patreon info to the top to free some extra space on the bottom for the names</span>
+				<span>v0.8: Another font/icon downscale due to names like «StevenSeagalCockPuncher» and increasing total amount of people</span>
+				<span>v0.7: Background image updated with new Patreon branding</span>
+				<span>v0.6: Tier icons updated, font size reduced to accomodate people with longer names in the future</span>
+				<span>v0.5: New background and font with diacritics support ("Björn" wasn't displayed properly, fixed)</span>
+				<span>v0.4: Automatic column number/width adjustment, depending on total name count</span>
 			</div>
 		</div>
 	</body>

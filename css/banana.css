@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,600&text=0123456789&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&text=0123456789&display=swap');
 
 :root {
 	--c-fg: #aaabac;
+	--c-extra: #3490f9;
 	--c-bg: #0b0c11;
 	--c-gold: #f2e224;
 	--c-silver: #d0d2f4;
@@ -13,6 +13,7 @@
 
 	--transition-ms: 128ms;
 
+	--bbg-alpha: 20%;
 }
 
 * {
@@ -169,6 +170,7 @@ label input:checked + span {
 	line-height: 20px;
 	text-align: left;
 }
+
 .actions a {
 	display: inline-block;
 	vertical-align: middle;
@@ -181,7 +183,7 @@ label input:checked + span {
 	margin: 6px;
 	opacity: 0.5;
 	transition: all var(--transition-ms) ease-in-out;
-	background-color: color-mix(in srgb, var(--c-fg) 10%, transparent);
+	background-color: color-mix(in srgb, var(--c-fg) var(--bbg-alpha), transparent);
 }
 .actions a:hover {
 	opacity: 0.9;
@@ -191,22 +193,22 @@ label input:checked + span {
 .actions a[href="#save"] {
 	float: right;
 	color: var(--c-gold);
-	background-color: color-mix(in srgb, var(--c-gold) 10%, transparent);
+	background-color: color-mix(in srgb, var(--c-gold) var(--bbg-alpha), transparent);
 }
 
 .actions a[href="#changelog"] {
 	color: var(--c-silver);
-	background-color: color-mix(in srgb, var(--c-silver) 10%, transparent);
+	background-color: color-mix(in srgb, var(--c-silver) var(--bbg-alpha), transparent);
 }
 
 .actions a[href="#sample"] {
-	color: var(--c-other);
-	background-color: color-mix(in srgb, var(--c-other) 10%, transparent);
+	color: var(--c-extra);
+	background-color: color-mix(in srgb, var(--c-extra) var(--bbg-alpha), transparent);
 }
 
 .actions a[href="#reset"] {
 	color: var(--c-danger);
-	background-color: color-mix(in srgb, var(--c-danger) 10%, transparent);
+	background-color: color-mix(in srgb, var(--c-danger) var(--bbg-alpha), transparent);
 }
 
 #changelog {
@@ -216,13 +218,30 @@ label input:checked + span {
 	opacity: 0;
 	overflow: hidden;
 	margin: 24px auto;
-	font-family: "Teko", Arial, sans-serif;
-	font-size: 20px;
 	padding: 1em;
+	color: var(--c-silver);
 	border: 1px solid var(--c-silver);
 	border-radius: 4px;
-	color: var(--c-silver);
 	background-color: color-mix(in srgb, var(--c-silver) 10%, transparent);
+}
+#changelog > div {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	line-height: 1.5;
+	margin-bottom: 1em;
+}
+#changelog > span {
+	display: block;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	line-height: 1.2;
+}
+#changelog > span + span {
+	margin-top: 6px;
+}
+
+#changelog a {
+	color: var(--c-gold);
 }
 
 .actions:has(a.active) + #changelog {
