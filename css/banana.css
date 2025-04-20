@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,600&text=0123456789&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+:root {
+	--c-fg: #aaabac;
+	--c-bg: #0b0c11;
+	--c-gold: #f2e224;
+	--c-silver: #d0d2f4;
+	--c-bronze: #c0c242;
+	--c-other: #b2b4b6;
+	--c-danger: #e21a1a;
+
+	--transition-ms: 128ms;
+
+}
 
 * {
 	box-sizing: border-box;
@@ -7,7 +21,7 @@
 
 body {
 	width: 100%;
-	background: #0b0c11;
+	background: var(--c-bg);
 	padding: 20px;
 	margin: 0;
 }
@@ -40,10 +54,10 @@ input[type="text"] {
 	font-family: "Teko", Arial, sans-serif;
 	font-size: 18px;
 	line-height: 18px;
-	border: 1px solid #666;
+	border: 1px solid var(--c-fg);
 	border-radius: 4px;
-	background-color: #111;
-	color: #eee;
+	background-color: var(--c-bg);
+	color: var(--c-fg);
 }
 input::placeholder {
 	opacity: 0.25;
@@ -62,9 +76,10 @@ label {
 	line-height: 17px;
 	padding: 5px;
 	border-radius: 2px;
-	background-color: #000;
+	background-color: var(--c-bg);
 	cursor: pointer;
 	opacity: 0.69;
+	transition: all var(--transition-ms) ease-in-out;
 }
 
 label:has(input:checked) {
@@ -79,41 +94,57 @@ label input:checked + span {
 	opacity: 1;
 }
 
+.tier-input > input[type="text"] {
+	box-shadow: 0 0 2px 0;
+	border: 1px solid transparent;
+	padding-right: 116px;
+	opacity: 0.9;
+	transition: all var(--transition-ms) ease-in-out;
+}
+.tier-input > input[type="text"] + img {
+	opacity: 0.6;
+}
+
+.tier-input > input[type="text"]:focus {
+	border: 1px solid;
+	outline: none;
+	opacity: 1;
+	box-shadow: 0 0 2px 1px;
+}
+.tier-input > input[type="text"]:focus + img {
+	opacity: 1;
+}
 
 .tier-input > input[type="text"] {
-	border: 1px solid #f2e224;
-	color: #f2e224;
-	background-color: #f2e22422;
+	color: var(--c-gold);
+	background-color: color-mix(in srgb, var(--c-gold) 10%, transparent);
 }
 .tier-input > label {
-	background-color: #f2e224;
+	background-color: var(--c-gold);
 }
 
 .tier-input + .tier-input > input[type="text"] {
-	border: 1px solid #d0d2f4;
-	color: #d0d2f4;
-	background-color: #d0d2f422;
+	color: var(--c-silver);
+	background-color: color-mix(in srgb, var(--c-silver) 10%, transparent);
 }
 .tier-input + .tier-input > label {
-	background-color: #d0d2f4;
+	background-color: var(--c-silver);
 }
 
 .tier-input + .tier-input + .tier-input > input[type="text"] {
-	border: 1px solid #c0c242;
-	color: #c0c242;
-	background-color: #c0c24222;
+	color: var(--c-bronze);
+	background-color: color-mix(in srgb, var(--c-bronze) 10%, transparent);
 }
 .tier-input + .tier-input + .tier-input > label {
-	background-color: #c0c242;
+	background-color: var(--c-bronze);
 }
 
 .tier-input + .tier-input + .tier-input + .tier-input > input[type="text"] {
-	border: 1px solid #b2b4b6;
-	color: #b2b4b6;
-	background-color: #b2b4b622;
+	color: var(--c-other);
+	background-color: color-mix(in srgb, var(--c-other) 10%, transparent);
 }
 .tier-input + .tier-input + .tier-input + .tier-input > label {
-	background-color: #b2b4b6;
+	background-color: var(--c-other);
 }
 
 #canvas {
@@ -121,9 +152,9 @@ label input:checked + span {
 	width: 100%;
 	max-width: 1920px;
 	height: auto;
-	margin: 10px auto;
+	margin: 24px auto;
 	cursor: pointer;
-	box-shadow: 0 0 2px #fff6;
+	box-shadow: 0 0 2px color-mix(in srgb, var(--c-other) 60%, transparent);
 }
 
 .asset {
@@ -132,55 +163,80 @@ label input:checked + span {
 
 .actions {
 	width: 100%;
-	margin: 22px auto;
+	margin: 24px auto;
 	font-family: "Teko", Arial, sans-serif;
-	font-size: 22px;
+	font-size: 18px;
 	line-height: 20px;
-	color: #becee7;
-	text-align: center;
+	text-align: left;
 }
 .actions a {
 	display: inline-block;
+	vertical-align: middle;
 	text-decoration: none;
-	color: #becee7;
-	border: 1px solid #becee7;
+	color: var(--c-fg);
+	border: 1px solid;
+	box-shadow: 0 0 1px, inset 0 0 1px;
 	border-radius: 4px;
-	padding: 6px 12px;
+	padding: 8px 12px 6px 12px;
 	margin: 6px;
 	opacity: 0.5;
+	transition: all var(--transition-ms) ease-in-out;
+	background-color: color-mix(in srgb, var(--c-fg) 10%, transparent);
 }
 .actions a:hover {
 	opacity: 0.9;
+	box-shadow: 0 0 4px, inset 0 0 2px;
+}
+
+.actions a[href="#save"] {
+	float: right;
+	color: var(--c-gold);
+	background-color: color-mix(in srgb, var(--c-gold) 10%, transparent);
 }
 
 .actions a[href="#changelog"] {
-	color: #2274c6;
-	border: 1px solid #2274c6;
+	color: var(--c-silver);
+	background-color: color-mix(in srgb, var(--c-silver) 10%, transparent);
 }
 
 .actions a[href="#sample"] {
-	color: #d1cb27;
-	border: 1px solid #d1cb27;
+	color: var(--c-other);
+	background-color: color-mix(in srgb, var(--c-other) 10%, transparent);
 }
 
 .actions a[href="#reset"] {
-	color: #ca4221;
-	border: 1px solid #ca4221;
+	color: var(--c-danger);
+	background-color: color-mix(in srgb, var(--c-danger) 10%, transparent);
 }
 
 #changelog {
-	transition: all 250ms ease-in-out;
+	transition: all var(--transition-ms) ease-in-out;
 	width: 100%;
 	height: 0;
 	opacity: 0;
 	overflow: hidden;
-	margin: 22px auto;
+	margin: 24px auto;
 	font-family: "Teko", Arial, sans-serif;
 	font-size: 20px;
-	color: #8888;
+	padding: 1em;
+	border: 1px solid var(--c-silver);
+	border-radius: 4px;
+	color: var(--c-silver);
+	background-color: color-mix(in srgb, var(--c-silver) 10%, transparent);
 }
 
 .actions:has(a.active) + #changelog {
-	opacity: 1;
+	opacity: 0.5;
 	height: auto;
+}
+
+@media (width <= 480px) {
+
+	.actions a {
+		margin: 0 0 12px 0;
+		text-align: center;
+		float: none;
+		width: 100%;
+	}
+
 }

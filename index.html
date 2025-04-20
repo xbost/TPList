@@ -3,13 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,600&text=0123456789&display=swap" rel="stylesheet">
-		<link href="css/banana.css?v495g" rel="stylesheet">
-		<script src="js/banana.js?v495g"></script>
-		<title>TPList v0.9.5g</title>
+		<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400&display=swap" rel="preload" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,600&text=0123456789&display=swap" rel="preload" crossorigin>
+		<link href="css/banana.css?v096g" rel="stylesheet">
+		<script src="js/banana.js?v095g"></script>
+		<title>TPList v0.9.6g</title>
 	</head>
 
 	<body>
@@ -39,9 +39,10 @@
 			<canvas id="canvas"></canvas>
 			<span id="debug"></span>
 			<div class="actions">
-				<a href="#changelog" onclick="this.classList.toggle('active')">CHANGELOG</a>
-				<a href="#sample" onclick="populate('sample')">SAMPLE NAMES</a>
+				<a href="#save" onclick="populate('download')">DOWNLOAD</a>
 				<a href="#reset" onclick="populate('reset')">CLEAR</a>
+				<a href="#sample" onclick="populate('sample')">SAMPLE NAMES</a>
+				<a href="#changelog" onclick="this.classList.toggle('active')">CHANGELOG</a>
 				<a href="#bWFpbHRvOmJveEB4Ym9zdC5wcm8/c3ViamVjdD1BYm91dCB0aGUgdGllciBsaXN0aW5nIHRvb2w=" onclick="this.href=atob(this.href.split('#')[1])??this.href;">CONTACT</a><br>
 			</div>
 			<div id="changelog">
