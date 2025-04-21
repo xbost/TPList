@@ -65,40 +65,58 @@ input::placeholder {
 }
 
 label {
-	display: block;
+	display: flex;
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: auto;
+	width: 30px;
 	height: 30px;
 	margin: 4px;
 	font-family: "Teko", Arial, sans-serif;
-	font-size: 17px;
-	line-height: 17px;
-	padding: 5px;
-	border-radius: 2px;
-	background-color: var(--c-bg);
+	font-size: 16px;
+	line-height: 16px;
+	border-radius: 3px;
+	color: var(--c-fg);
+	background-color: transparent;
+	border: 1px solid;
 	cursor: pointer;
-	opacity: 0.69;
+	text-align: center;
+	align-items: center;
+	overflow: hidden;
+	opacity: 0.33;
 	transition: all var(--transition-ms) ease-in-out;
 }
 
+label + label {
+	right: 34px;
+}
+label + label + label {
+	right: 68px;
+}
+
 label:has(input:checked) {
-	opacity: 1;
+	color: var(--c-bg);
+	opacity: 0.9;
 }
 
 label span {
-	opacity: 0.5;
+	display: block;
+	width: 100%;
+	text-align: center;
 }
 
-label input:checked + span {
-	opacity: 1;
+label input {
+	position: absolute;
+	top: -100%;
+	overflow: hidden;
+	width: 0;
+	visibility: hidden;
 }
 
 .tier-input > input[type="text"] {
 	box-shadow: 0 0 2px 0;
 	border: 1px solid transparent;
-	padding-right: 116px;
+	padding-right: 104px;
 	opacity: 0.9;
 	transition: all var(--transition-ms) ease-in-out;
 }
@@ -120,32 +138,36 @@ label input:checked + span {
 	color: var(--c-gold);
 	background-color: color-mix(in srgb, var(--c-gold) 10%, transparent);
 }
-.tier-input > label {
+.tier-input > label:has(input:checked) {
 	background-color: var(--c-gold);
+	border-color: var(--c-gold);
 }
 
 .tier-input + .tier-input > input[type="text"] {
 	color: var(--c-silver);
 	background-color: color-mix(in srgb, var(--c-silver) 10%, transparent);
 }
-.tier-input + .tier-input > label {
+.tier-input + .tier-input > label:has(input:checked) {
 	background-color: var(--c-silver);
+	border-color: var(--c-silver);
 }
 
 .tier-input + .tier-input + .tier-input > input[type="text"] {
 	color: var(--c-bronze);
 	background-color: color-mix(in srgb, var(--c-bronze) 10%, transparent);
 }
-.tier-input + .tier-input + .tier-input > label {
+.tier-input + .tier-input + .tier-input > label:has(input:checked) {
 	background-color: var(--c-bronze);
+	border-color: var(--c-bronze);
 }
 
 .tier-input + .tier-input + .tier-input + .tier-input > input[type="text"] {
 	color: var(--c-other);
 	background-color: color-mix(in srgb, var(--c-other) 10%, transparent);
 }
-.tier-input + .tier-input + .tier-input + .tier-input > label {
+.tier-input + .tier-input + .tier-input + .tier-input > label:has(input:checked) {
 	background-color: var(--c-other);
+	border-color: var(--c-other);
 }
 
 #canvas {
