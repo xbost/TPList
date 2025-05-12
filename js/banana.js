@@ -89,16 +89,16 @@ const populate = function (action) {
 		}
 		breakpoints[i] = total;
 	}
-	e.canvas.width = 1920;
-	e.canvas.height = 1080;
+	e.canvas.width = 1920 * 2;
+	e.canvas.height = 1080 * 2;
 	var ctx = e.canvas.getContext('2d');
 	ctx.drawImage(e.source, 0, 0);
 	var list = names.split(",");
 	var fontHeight = e.font.nameSize;
 	var lineHeight = fontHeight + 2;
-	var limit = Math.floor(910 / lineHeight);
+	var limit = Math.floor(1820 / lineHeight);
 	var totalColumns = Math.ceil(list.length / (limit + 1));
-	var columnWidth = Math.ceil(1860 / totalColumns);
+	var columnWidth = Math.ceil(3720 / totalColumns);
 	var line = 0;
 	var column = 0;
 	var rank = 0;
@@ -112,21 +112,21 @@ const populate = function (action) {
 		}
 		if (tierOptions[rank].fixCase) name = titleCase(name);
 		var x = columnWidth / 4 + (column * columnWidth);
-		var y = 130 + (line * lineHeight)
+		var y = 260 + (line * lineHeight)
 		if (name != ' ') {
-			ctx.drawImage(e.tier[rank], x - 3, y - fontHeight + (rank == 0 ? 3 : 4), 20, 20);
+			ctx.drawImage(e.tier[rank], x - 6, y - fontHeight + (rank == 0 ? 6 : 8), 40, 40);
 			ctx.font = `${e.font.numSize}px ${e.font.num}`;
 			ctx.fillStyle = "#112233bb";
 			ctx.textAlign = "center";
-			if (tierOptions[rank].numbered) ctx.fillText(i + 1, x + 7, y);
+			if (tierOptions[rank].numbered) ctx.fillText(i + 1, x + 14, y-2);
 		}
 		ctx.fillStyle = color[rank];
 		ctx.textAlign = "left";
 		ctx.font = `${fontHeight}px ${e.font.name}`;
 		ctx.fillStyle = "#112233";
-		ctx.fillText(name, x + 20, y + 4, (columnWidth - fontHeight * 1.5));
+		ctx.fillText(name, x + 40, y + 8, (columnWidth - fontHeight * 1.5));
 		ctx.fillStyle = color[rank];
-		ctx.fillText(name, x + 20, y + 2, (columnWidth - fontHeight * 1.5));
+		ctx.fillText(name, x + 40, y + 4, (columnWidth - fontHeight * 1.5));
 
 		line++;
 		if (line > limit) {
@@ -152,8 +152,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		font: {
 			name: `Teko, sans-serif`,
 			num: `'Barlow Condensed', sans-serif`,
-			nameSize: 18,
-			numSize: 10
+			nameSize: 36,
+			numSize: 18
 		},
 		source: document.getElementById('source'),
 		debug: document.getElementById('debug'),
