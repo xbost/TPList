@@ -12,10 +12,11 @@ const dateStamp = function() {
 	].join('-');
 }
 
-const getRandomString = function(length = 8, weird = .2, spaced) {
+const getRandomString = function(length = 8, weird = .2, spaced = false, wordMinLength = 3) {
 	var type = Math.round(Math.random());
 	var index = 0;
 	var output = "";
+	var wordLength = 0;
 	const letters = [
 		["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z"],
 		["a","e","i","o","u"]
@@ -24,7 +25,11 @@ const getRandomString = function(length = 8, weird = .2, spaced) {
 		output = output + letters[type][Math.floor(Math.random() * letters[type].length)];
 		if (Math.random() > weird) type ^= 1;
 		index++;
-		if (spaced && index < length && Math.random() < weird) output = output + " ";
+		wordLength++;
+		if (spaced && index < length && Math.random() < weird && wordLength >= wordMinLength) {
+			wordLength = 0;
+			output = output + " ";
+		}
 	}
 	return output;
 }
@@ -59,7 +64,13 @@ const populate = function (action) {
 		for (i = 0; i < e.tiers.length; i++) {
 			var limit = getRandomInt(128,196);
 			var samples = [];
-			for (n = 0; n < limit; n++) samples.push(titleCase(getRandomString(getRandomInt(3,16), 0.2, true)));
+			for (n = 0; n < limit; n++) {
+				var sample = getRandomString(getRandomInt(3,16), 0.1, true);
+				if (getRandomInt(0,100) < 20) sample = sample.toUpperCase();
+				else if (getRandomInt(0,100) < 20) sample = sample.toLowerCase();
+				else sample = titleCase(sample);
+				samples.push(sample);
+			}
 			e.tiers[i].value = samples.join(', ');
 		}
 	}
@@ -114,11 +125,11 @@ const populate = function (action) {
 		var x = columnWidth / 4 + (column * columnWidth);
 		var y = 260 + (line * lineHeight)
 		if (name != ' ') {
-			ctx.drawImage(e.tier[rank], x - 6, y - fontHeight + (rank == 0 ? 6 : 8), 40, 40);
+			ctx.drawImage(e.tier[rank], x - 6, y - fontHeight + (rank == 0 ? 7 : 9), 40, 40);
 			ctx.font = `${e.font.numSize}px ${e.font.num}`;
 			ctx.fillStyle = "#112233bb";
 			ctx.textAlign = "center";
-			if (tierOptions[rank].numbered) ctx.fillText(i + 1, x + 14, y-2);
+			if (tierOptions[rank].numbered) ctx.fillText(i + 1, x + 14, y-1);
 		}
 		ctx.fillStyle = color[rank];
 		ctx.textAlign = "left";
@@ -151,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	e = {
 		font: {
 			name: `Teko, sans-serif`,
-			num: `'Barlow Condensed', sans-serif`,
+			num: `'Fira Sans Extra Condensed', sans-serif`,
 			nameSize: 36,
 			numSize: 18
 		},

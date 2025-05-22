@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&text=0123456789&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@1,700&display=swap');
 
 :root {
 	--c-fg: #aaabac;
@@ -132,7 +132,7 @@ label input {
 	border: 1px solid;
 	outline: none;
 	opacity: 1;
-	box-shadow: 0 0 2px 1px;
+	box-shadow: 0 0 0 1px;
 }
 .tier-input > input[type="text"]:focus + img {
 	opacity: 1;
